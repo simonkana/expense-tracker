@@ -1,0 +1,99 @@
+/* client/src/index.css */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #f5efe6;
+  --bg-card: #fdf8f2;
+  --bg-input: #fff9f3;
+  --border: #e8d9c5;
+  --border-focus: #c8956c;
+  --text-primary: #2c2420;
+  --text-secondary: #7a6555;
+  --text-muted: #b09a88;
+  --accent: #c8956c;
+  --accent-dark: #a8714a;
+  --accent-light: #f0e0d0;
+  --danger: #c0614a;
+  --danger-light: #f5e8e5;
+  --success: #6a9e7f;
+  --shadow-sm: 0 1px 3px rgba(80, 50, 30, 0.08);
+  --shadow-md: 0 4px 16px rgba(80, 50, 30, 0.1);
+  --shadow-lg: 0 8px 32px rgba(80, 50, 30, 0.13);
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-ui: "DM Sans", system-ui, sans-serif;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-ui);
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(
+      ellipse at 20% 50%,
+      rgba(200, 149, 108, 0.12) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse at 80% 20%,
+      rgba(180, 120, 70, 0.08) 0%,
+      transparent 50%
+    );
+  background-attachment: fixed;
+  color: var(--text-primary);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Grain overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+button {
+  font-family: var(--font-ui);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.18s ease;
+}
+
+input,
+select,
+textarea {
+  font-family: var(--font-ui);
+  outline: none;
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--border-focus) !important;
+  box-shadow: 0 0 0 3px rgba(200, 149, 108, 0.15);
+}
